@@ -47,24 +47,32 @@ const Orgservices = () => {
           {organizers.map(organizer => (
             <div key={organizer._id} className="col my-2">
               <div className="card " style={{ width: "12rem" }}>
-                <img class="card-img-top" src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
-                <div class="card-body" >
-                  <h5 class="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
+                {
+                  organizer.image ?
+                    <img className="card-img-top" style={{ width: "190px", height: "110px" }} src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
+                    :
+                    <img className="card-img-top" style={{ width: "190px", height: "110px" }} src='/assets/img/events-default.jpg' alt='event default' />
+                }
+
+                <div className="card-body" >
+                  <h5 className="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
 
                   <p style={{ color: "blue", margin: "0", marginBottom: "2px" }}>{organizer.state}</p>
 
                   <p style={{ margin: "0", marginBottom: "2px" }}>₹ <b style={{ color: "red" }}>{organizer.pricing}</b> onwards</p>
                   <p style={{ margin: "0", marginBottom: "5px" }}><b style={{ color: "brown" }}>{organizer.category}</b></p>
 
-                  
-                  {user?<button className="btn btn-info btn-sm" onClick={() => handleViewProfile(organizer)}>View</button>:
-                  <ViewProfile/>
-                  
+
+                  {user ? <button className="btn btn-info btn-sm" onClick={() => handleViewProfile(organizer)}>View</button> :
+                    <ViewProfile />
+
                   }
+
                 </div>
               </div>
             </div>
           ))}
+
         </div>
       </div>
       <Modal show={showProfileModal} onHide={handleCloseProfileModal}>

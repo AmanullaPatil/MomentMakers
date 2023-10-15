@@ -37,12 +37,12 @@ const Organizers = () => {
         <div className="row">
 
           <div className="col">
-            <div class="card">
-              <a href="/photographers" ><img src={photo} class="card-img-top" alt="..." /></a>
+            <div className="card">
+              <a href="/photographers" ><img src={photo} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Photographers</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Photographers</h5>
               </div>
             </div>
           </div>
@@ -50,11 +50,11 @@ const Organizers = () => {
 
 
           <div className="col">
-            <div class="card" >
-              <a href="/caterers" ><img src={catering} class="card-img-top" alt="..." /></a>
+            <div className="card" >
+              <a href="/caterers" ><img src={catering} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Food & Caterers</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Food & Caterers</h5>
               </div>
             </div>
           </div>
@@ -62,12 +62,12 @@ const Organizers = () => {
 
 
           <div className="col">
-            <div class="card" >
-              <a href="/mehandi"  > <img src={mehandi} style={{ height: "475px" }} class="card-img-top" alt="..." /></a>
+            <div className="card" >
+              <a href="/mehandi"  > <img src={mehandi} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Mehandi</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Mehandi</h5>
               </div>
             </div>
           </div>
@@ -80,12 +80,12 @@ const Organizers = () => {
         <div className="row mt-5">
 
           <div className="col">
-            <div class="card">
-              <a href="/sound-system" ><img src={sound} class="card-img-top" alt="..." />
+            <div className="card">
+              <a href="/sound-system" ><img src={sound} className="card-img-top" alt="..." />
               </a>
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Sound System</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Sound System</h5>
               </div>
             </div>
           </div>
@@ -93,12 +93,12 @@ const Organizers = () => {
 
 
           <div className="col">
-            <div class="card" >
-              <a href="/function-halls" ><img src={hall} class="card-img-top" alt="..." /></a>
+            <div className="card" >
+              <a href="/function-halls" ><img src={hall} className="card-img-top" alt="..." /></a>
 
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Function Halls/Venues</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Function Halls/Venues</h5>
               </div>
             </div>
           </div>
@@ -106,12 +106,12 @@ const Organizers = () => {
 
 
           <div className="col">
-            <div class="card" >
-              <a href="/wedding" ><img src={wedding} class="card-img-top" alt="..." /></a>
+            <div className="card" >
+              <a href="/wedding" ><img src={wedding} className="card-img-top" alt="..." /></a>
 
 
-              <div class="card-body">
-                <h5 class="card-title" style={{ fontWeight: "700" }}>Wedding Planners</h5>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Wedding Planners</h5>
               </div>
             </div>
           </div>

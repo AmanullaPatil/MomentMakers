@@ -21,12 +21,12 @@ const Orgcat = () => {
         <div className="row">
 
           <div className="col">
-            <div class="card">
-            <a href="/vendor-photographers" target='__blank'><img src={photo} class="card-img-top" alt="..." /></a>
+            <div className="card">
+              <a href="/vendor-photographers" ><img src={photo} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
-              
-              <div class="card-body">
-                <h5 class="card-title"  style={{fontWeight:"700"}}>Photographers</h5>
+
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Photographers</h5>
               </div>
             </div>
           </div>
@@ -34,11 +34,11 @@ const Orgcat = () => {
 
 
           <div className="col">
-            <div class="card" >
-              <a href="/vendor-caterers"  target='__blank'><img src={catering} class="card-img-top" alt="..." /></a>
-              
-              <div class="card-body">
-                <h5 class="card-title"  style={{fontWeight:"700"}}>Food & Caterers</h5>
+            <div className="card" >
+              <a href="/vendor-caterers" ><img src={catering} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
+
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Food & Caterers</h5>
               </div>
             </div>
           </div>
@@ -46,12 +46,12 @@ const Orgcat = () => {
 
 
           <div className="col">
-            <div class="card" >
-            <a href="/vendor-mehandi"  target='__blank'> <img src={mehandi} style={{height:"475px"}} class="card-img-top" alt="..." /></a>
+            <div className="card" >
+              <a href="/vendor-mehandi" > <img src={mehandi} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
-             
-              <div class="card-body">
-                <h5 class="card-title" style={{fontWeight:"700"}}>Mehandi</h5>
+
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Mehandi</h5>
               </div>
             </div>
           </div>
@@ -63,47 +63,47 @@ const Orgcat = () => {
 
         <div className="row mt-5">
 
-<div className="col">
-  <div class="card">
-  <a href="/vendor-sound-system" target='__blank'><img src={sound} class="card-img-top" alt="..." />
-</a>
-    
-    <div class="card-body">
-      <h5 class="card-title"  style={{fontWeight:"700"}}>Sound System</h5>
-    </div>
-  </div>
-</div>
+          <div className="col">
+            <div className="card">
+              <a href="/vendor-sound-system" ><img src={sound} style={{ height: "500px" }} className="card-img-top" alt="..." />
+              </a>
+
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Sound System</h5>
+              </div>
+            </div>
+          </div>
 
 
 
-<div className="col">
-  <div class="card" >
-  <a href="/vendor-function-halls" target='__blank'><img src={hall} class="card-img-top" alt="..." /></a>
-
-    
-    <div class="card-body">
-      <h5 class="card-title"  style={{fontWeight:"700"}}>Function Halls/Venues</h5>
-    </div>
-  </div>
-</div>
+          <div className="col">
+            <div className="card" >
+              <a href="/vendor-function-halls" ><img src={hall} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
 
-
-<div className="col">
-  <div class="card" >
-  <a href="/vendor-wedding" target='__blank'><img src={wedding} class="card-img-top" alt="..." /></a>
-
-    
-    <div class="card-body">
-      <h5 class="card-title"  style={{fontWeight:"700"}}>Wedding Planners</h5>
-    </div>
-  </div>
-</div>
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Function Halls/Venues</h5>
+              </div>
+            </div>
+          </div>
 
 
 
+          <div className="col">
+            <div className="card" >
+              <a href="/vendor-wedding" ><img src={wedding} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
 
-</div>
+
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontWeight: "700" }}>Wedding Planners</h5>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
 
       </div>
 

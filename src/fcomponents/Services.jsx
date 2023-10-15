@@ -51,9 +51,9 @@ const Services = () => {
           {organizers.map(organizer => (
             <div key={organizer._id} className="col my-2">
               <div className="card " style={{ width: "12rem" }}>
-                <img class="card-img-top" src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
-                <div class="card-body" >
-                  <h5 class="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
+                <img className="card-img-top" src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
+                <div className="card-body" >
+                  <h5 className="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
 
                   <p style={{ color: "blue", margin: "0", marginBottom: "2px" }}>{organizer.state}</p>
 

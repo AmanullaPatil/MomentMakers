@@ -5,8 +5,8 @@ const Footer = () => {
         <>
 
             <footer id="footer">
-                <div class="container">
-                    <div class="copyright">
+                <div className="container">
+                    <div className="copyright">
                         &copy; Copyright <strong>Moment Makers</strong>. All Rights Reserved
                     </div>
                 </div>

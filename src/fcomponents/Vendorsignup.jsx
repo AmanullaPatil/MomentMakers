@@ -14,8 +14,8 @@ const Signup = () => {
     about: '',
     state: '',
     pricing: '',
-    charge1:'',
-    charge2:''
+    charge1: '',
+    charge2: ''
   });
 
 
@@ -25,33 +25,32 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-if(validateForm())
-{
+    if (validateForm()) {
 
-    try {
+      try {
 
-      const { data } = await axios.post('http://localhost:5000/auth/page1/createorganizer', udetails, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+        const { data } = await axios.post('http://localhost:5000/auth/page1/createorganizer', udetails, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-      console.log(data);
+        console.log(data);
 
-      if (data.success === false) {
-        alert(data.error);
+        if (data.success === false) {
+          alert(data.error);
+        }
+        if (data.success) {
+          localStorage.setItem('token', data.authToken);
+          window.location = "/organizer";
+
+          navigate('/organizer');
+          console.log('Success');
+        }
+      } catch (error) {
+        alert('Database is not connected...');
       }
-      if (data.success) {
-        localStorage.setItem('token', data.authToken);
-        window.location = "/organizer";
-
-        navigate('/organizer');
-        console.log('Success');
-      }
-    } catch (error) {
-      alert('Database is not connected...');
     }
-}
 
 
 
@@ -65,47 +64,45 @@ if(validateForm())
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
-      const newErrors = {};
+    const newErrors = {};
 
-      if (udetails.firstname.trim() === "") {
-          newErrors.firstname = "This field is required";
-      }
-
-
-      if (udetails.email.trim() === "") {
-          newErrors.email = "This field is required";
-      }
-
-      if (udetails.phone.trim() === "") {
-          newErrors.phone = "This field is required";
-      } else if (udetails.phone.length !== 10) {
-          newErrors.phone = "Please enter a valid 10-digit phone number";
-      }
+    if (udetails.firstname.trim() === "") {
+      newErrors.firstname = "This field is required";
+    }
 
 
-      let cp = document.getElementById("cpassword")
-      if(udetails.password.trim() === "")
-      {
-          newErrors.password = "This field is required...."
-      }
-      else if(cp.value !== udetails.password)
-      {
-          newErrors.cpassword = "Incorrect Confirm Password"
-      }
+    if (udetails.email.trim() === "") {
+      newErrors.email = "This field is required";
+    }
+
+    if (udetails.phone.trim() === "") {
+      newErrors.phone = "This field is required";
+    } else if (udetails.phone.length !== 10) {
+      newErrors.phone = "Please enter a valid 10-digit phone number";
+    }
+
+
+    let cp = document.getElementById("cpassword")
+    if (udetails.password.trim() === "") {
+      newErrors.password = "This field is required...."
+    }
+    else if (cp.value !== udetails.password) {
+      newErrors.cpassword = "Incorrect Confirm Password"
+    }
 
 
 
-      if (udetails.about.trim() === "") {
-        newErrors.about = "This field is required";
-    } 
+    if (udetails.about.trim() === "") {
+      newErrors.about = "This field is required";
+    }
 
 
-      
 
-      setErrors(newErrors);
 
-      // Return true if there are no errors
-      return Object.keys(newErrors).length === 0;
+    setErrors(newErrors);
+
+    // Return true if there are no errors
+    return Object.keys(newErrors).length === 0;
   };
 
 
@@ -113,7 +110,7 @@ if(validateForm())
 
 
 
-  
+
   const [Name, setName] = useState("")
   const [Phone, setPhone] = useState("")
   const [Password, setPassword] = useState("")
@@ -132,10 +129,9 @@ if(validateForm())
 
 
 
-  const checkError = ()=>{
+  const checkError = () => {
     let bname = document.getElementById('name')
-    if(bname.value === '')
-    {
+    if (bname.value === '') {
       setName("This field is required....")
       setTimeout(() => {
         setName('')
@@ -144,8 +140,7 @@ if(validateForm())
 
 
     let phone = document.getElementById('phone')
-    if(!isValidPhoneNumber(phone.value))
-    {
+    if (!isValidPhoneNumber(phone.value)) {
       setPhone("Please enter 10 digits")
       setTimeout(() => {
         setPhone('')
@@ -154,8 +149,7 @@ if(validateForm())
 
 
     let password = document.getElementById("password")
-    if(password.value === '')
-    {
+    if (password.value === '') {
       setPassword("This field is required")
       setTimeout(() => {
         setPassword('')
@@ -164,15 +158,13 @@ if(validateForm())
 
 
     let cpassword = document.getElementById("cpassword")
-    if(password.value !== cpassword.value)
-    {
-        setCpass("Incorrect Confirm Password")
-        setTimeout(() => {
-          setCpass('')
-        }, 4000);
+    if (password.value !== cpassword.value) {
+      setCpass("Incorrect Confirm Password")
+      setTimeout(() => {
+        setCpass('')
+      }, 4000);
     }
-    else if(cpassword.value === '')
-    {
+    else if (cpassword.value === '') {
       setCpass('This field is required')
       setTimeout(() => {
         setCpass('')
@@ -182,64 +174,58 @@ if(validateForm())
 
 
     let category = document.getElementById("category")
-    if(category.value === '')
-    {
-        setCategory("Please select Category")
-        setTimeout(() => {
-          setCategory('')
-        }, 4000);
+    if (category.value === '') {
+      setCategory("Please select Category")
+      setTimeout(() => {
+        setCategory('')
+      }, 4000);
     }
 
 
 
 
     let state = document.getElementById("state")
-    if(state.value === '')
-    {
-        setState("Please select State")
-        setTimeout(() => {
-          setState('')
-        }, 4000);
+    if (state.value === '') {
+      setState("Please select State")
+      setTimeout(() => {
+        setState('')
+      }, 4000);
     }
 
 
     let city = document.getElementById("city")
-    if(city.value === '')
-    {
-        setCity("This field is required")
-        setTimeout(() => {
-          setCity('')
-        }, 4000);
+    if (city.value === '') {
+      setCity("This field is required")
+      setTimeout(() => {
+        setCity('')
+      }, 4000);
     }
 
-    
+
     let pricing = document.getElementById("pricing")
-    if(pricing.value === '')
-    {
-        setPrice("This field is required")
-        setTimeout(() => {
-          setPrice('')
-        }, 4000);
+    if (pricing.value === '') {
+      setPrice("This field is required")
+      setTimeout(() => {
+        setPrice('')
+      }, 4000);
     }
 
 
 
     let charge1 = document.getElementById("charge1")
-    if(charge1.value === '')
-    {
-        setCharge1("This field is required")
-        setTimeout(() => {
-          setCharge1('')
-        }, 4000);
+    if (charge1.value === '') {
+      setCharge1("This field is required")
+      setTimeout(() => {
+        setCharge1('')
+      }, 4000);
     }
 
     let charge2 = document.getElementById("charge2")
-    if(charge2.value === '')
-    {
-        setCharge2("This field is required")
-        setTimeout(() => {
-          setCharge2('')
-        }, 4000);
+    if (charge2.value === '') {
+      setCharge2("This field is required")
+      setTimeout(() => {
+        setCharge2('')
+      }, 4000);
     }
 
   }
@@ -248,17 +234,17 @@ if(validateForm())
 
 
 
-  
 
 
-      //On Change Handler
-      const onChange = (e) => {
-        const { name, value } = e.target;
-        setUdetails({
-            ...udetails,
-            [name]: value
-        });
-    };
+
+  //On Change Handler
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setUdetails({
+      ...udetails,
+      [name]: value
+    });
+  };
 
 
 
@@ -293,7 +279,7 @@ if(validateForm())
 
                           <div className="form-outline mb-4">
                             <label className="form-label" htmlFor="name"> Brand Name </label>
-                            <input type="text" name="firstname" value={udetails.firstname} onChange={onChange} id="name" className="form-control form-control-lg" required/>
+                            <input type="text" name="firstname" value={udetails.firstname} onChange={onChange} id="name" className="form-control form-control-lg" required />
                             <span className='text-danger'>{errors.firstname || Name}</span>
                           </div>
 
@@ -302,17 +288,17 @@ if(validateForm())
 
 
 
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="password">Password</label>
-                            <input type="password" name='password' value={udetails.password} onChange={onChange} id="password" class="form-control form-control-lg"  required/>
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="password">Password</label>
+                            <input type="password" name='password' value={udetails.password} onChange={onChange} id="password" className="form-control form-control-lg" required />
                             <span className='text-danger'>{Password}</span>
 
                           </div>
 
 
 
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="category">Select Business category</label>
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="category">Select Business category</label>
                             <select className='form-control form-control-lg' onChange={onChange} name="category" id="category" required>
                               <option value="" disabled>Select</option>
                               <option value="">Select</option>
@@ -330,14 +316,14 @@ if(validateForm())
                           </div>
 
 
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="city">City</label>
-                            <input type="text" name='city' value={udetails.city} onChange={onChange} id="city" class="form-control form-control-lg" required/>
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="city">City</label>
+                            <input type="text" name='city' value={udetails.city} onChange={onChange} id="city" className="form-control form-control-lg" required />
                             <span className='text-danger'>{City}</span>
 
                           </div>
 
-                    
+
 
 
                           {/* ... Other form elements ... */}
@@ -352,23 +338,23 @@ if(validateForm())
                           <div className="form-outline mb-4">
                             <label className="form-label" htmlFor="phone">Mobile Number</label>
                             <input type="number" pattern='[6-9]{1}[0-9]{9}' title='Please enter a valid mobile number' name="phone" value={udetails.phone} onChange={onChange} id="phone" className="form-control form-control-lg"
-                            required/>
+                              required />
                             <span className='text-danger'>{errors.phone || Phone}</span>
                           </div>
 
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="cpassword">Confirm Password</label>
-                            <input type="password" name='cpassword' onChange={onChange} id="cpassword" class="form-control form-control-lg"  required/>
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="cpassword">Confirm Password</label>
+                            <input type="password" name='cpassword' onChange={onChange} id="cpassword" className="form-control form-control-lg" required />
                             <span className='text-danger'>{errors.cpassword || Cpass}</span>
 
 
-                            
+
 
                           </div>
 
 
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="state">Select State</label>
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="state">Select State</label>
                             <select className='form-control form-control-lg' onChange={onChange} name="state" id="state" required>
                               <option value="" disabled>Select</option>
                               <option value="">Select</option>
@@ -394,11 +380,11 @@ if(validateForm())
 
                           </div>
 
-                          
-                          <div class="form-outline mb-4">
-                            <label class="form-label" for="email">Your Email</label>
-                            <input type="email" name='email' value={udetails.email} onChange={onChange} id="email" class="form-control form-control-lg" required/>
-                          <span className='text-danger'>{errors.email}</span>
+
+                          <div className="form-outline mb-4">
+                            <label className="form-label" for="email">Your Email</label>
+                            <input type="email" name='email' value={udetails.email} onChange={onChange} id="email" className="form-control form-control-lg" required />
+                            <span className='text-danger'>{errors.email}</span>
                           </div>
 
 
@@ -422,27 +408,27 @@ if(validateForm())
                       </div>
 
 
-                                                
-                      <div class="form-outline mb-4">
-                            <label class="form-label" for="pricing">Average Pricing</label>
-                            <input type="number" name='pricing' value={udetails.pricing} onChange={onChange} id="pricing" class="form-control form-control-lg" placeholder='In Rupees' required/>
-                            <span className='text-danger'>{Price}</span>
 
-                          </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" for="pricing">Average Pricing</label>
+                        <input type="number" name='pricing' value={udetails.pricing} onChange={onChange} id="pricing" className="form-control form-control-lg" placeholder='In Rupees' required />
+                        <span className='text-danger'>{Price}</span>
 
-
-                      <div class="form-outline mb-4">
-                            <label class="form-label" for="charge1">Pricing Details</label>
-                            <input type="number" name='charge1' value={udetails.charge1} onChange={onChange} id="charge1" class="form-control form-control-lg" placeholder='1 Day charges' required/>
-                            <span className='text-danger'>{Charge1}</span>
-                          </div>
+                      </div>
 
 
-                          <div class="form-outline mb-4">
-                            <input type="number" name='charge2' value={udetails.charge2} onChange={onChange} id="charge2" class="form-control form-control-lg" placeholder='2 day charges' required/>
-                            <span className='text-danger'>{Charge2}</span>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" for="charge1">Pricing Details</label>
+                        <input type="number" name='charge1' value={udetails.charge1} onChange={onChange} id="charge1" className="form-control form-control-lg" placeholder='1 Day charges' required />
+                        <span className='text-danger'>{Charge1}</span>
+                      </div>
 
-                          </div>
+
+                      <div className="form-outline mb-4">
+                        <input type="number" name='charge2' value={udetails.charge2} onChange={onChange} id="charge2" className="form-control form-control-lg" placeholder='2 day charges' required />
+                        <span className='text-danger'>{Charge2}</span>
+
+                      </div>
 
 
 

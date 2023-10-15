@@ -7,19 +7,19 @@ const Hero = () => {
 
             <section id="hero">
 
-                <div class="hero-content" data-aos="fade-up">
-                    <h2 style={{fontSize:"45px"}}>Organize <span>your next event </span><br />With us...</h2>
+                <div className="hero-content" data-aos="fade-up">
+                    <h2 style={{ fontSize: "45px" }}>Organize <span>your next event </span><br />With us...</h2>
                     <div>
-                        {!user?
-                        <a href="/signup" class="btn-get-started scrollto">Register Today</a>:
-                        <a href="/services" class="btn-get-started scrollto">Find Organizers</a>
+                        {!user ?
+                            <a href="/signup" className="btn-get-started scrollto">Register Today</a> :
+                            <a href="/services" className="btn-get-started scrollto">Find Organizers</a>
                         }
-                        
+
                     </div>
                 </div>
 
-                <div class="hero-slider swiper">
-                    <div class="swiper-wrapper">
+                <div className="hero-slider swiper">
+                    <div className="swiper-wrapper">
                     </div>
                 </div>
 

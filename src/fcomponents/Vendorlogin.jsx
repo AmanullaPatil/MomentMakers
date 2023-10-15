@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { useNavigate } from 'react-router-dom'
@@ -37,7 +37,7 @@ const Vendorlogin = () => {
                 console.log("Success");
                 navigate("/organizer");
             }
-            else{
+            else {
                 alert("Please check your credintials...")
             }
 
@@ -54,7 +54,7 @@ const Vendorlogin = () => {
 
 
 
-   
+
 
 
 
@@ -64,45 +64,45 @@ const Vendorlogin = () => {
 
 
 
-  return (
-    <>
-    
+    return (
+        <>
 
-    <Navbar/>
-    <div className="container my-5">
-    <h1 className="my-2" style={{paddingBottom:"20px"}}>Vendor Login</h1>
 
-            <form onSubmit={handleSubmit} id="my-form">
-                <div class="form-outline mb-4 form-group">
-                    <input type="email" name='email' value={creds.email} onChange={onChange} id="form2Example1" class="form-control" />
-                    <label class="form-label" for="form2Example1">Email address</label>
-                </div>
+            <Navbar />
+            <div className="container my-5">
+                <h1 className="my-2" style={{ paddingBottom: "20px" }}>Vendor Login</h1>
 
-                <div class="form-outline mb-4">
-                    <input type="password" name='password' value={creds.password} onChange={onChange} id="form2Example2" class="form-control" />
-                    <label class="form-label" for="form2Example2">Password</label>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col">
-                        <a href="/vendor-forget-password">Forgot password?</a>
+                <form onSubmit={handleSubmit} id="my-form">
+                    <div className="form-outline mb-4 form-group">
+                        <input type="email" name='email' value={creds.email} onChange={onChange} id="form2Example1" className="form-control" />
+                        <label className="form-label" for="form2Example1">Email address</label>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                    <div className="form-outline mb-4">
+                        <input type="password" name='password' value={creds.password} onChange={onChange} id="form2Example2" className="form-control" />
+                        <label className="form-label" for="form2Example2">Password</label>
+                    </div>
 
-                <div class="text-center">
-                    <p>Not a member? <a href="/vendorsignup">Register</a></p>
-                    
-                </div>
-            </form>
+                    <div className="row mb-4">
+                        <div className="col">
+                            <a href="/vendor-forget-password">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" className="btn btn-primary btn-block mb-4">Sign in</button>
+
+                    <div className="text-center">
+                        <p>Not a member? <a href="/vendorsignup">Register</a></p>
+
+                    </div>
+                </form>
 
             </div>
-    <Footer/>
-    
-    
-    </>
-  )
+            <Footer />
+
+
+        </>
+    )
 }
 
 export default Vendorlogin
