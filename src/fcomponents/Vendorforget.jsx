@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useRef } from 'react'
 import Reset from './Reset'
+import { API_BASE_URL } from '../config/config'
 
 
 
@@ -22,7 +23,7 @@ const Vendorforget = () => {
     try {
 
 
-      const { data } = await axios.post('http://localhost:5000/auth/vendor-email-send',
+      const { data } = await axios.post(API_BASE_URL + '/auth/vendor-email-send',
         document.querySelector('#my-form'), {
         mode: 'no-cors',
         headers: {

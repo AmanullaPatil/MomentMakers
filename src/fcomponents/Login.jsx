@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../config/config'
 
 const Login = () => {
 
@@ -20,7 +21,7 @@ const Login = () => {
         try {
 
 
-            const data = await axios.post('http://localhost:5000/auth/login',
+            const { data } = await axios.post(API_BASE_URL + '/auth/login',
                 creds, {
                 mode: 'no-cors',
                 headers: {
@@ -28,7 +29,7 @@ const Login = () => {
                 }
             })
 
-            console.log(data);
+            console.log(data.success);
             if (data.success === false) {
                 alert("Please check your credentials...")
             }

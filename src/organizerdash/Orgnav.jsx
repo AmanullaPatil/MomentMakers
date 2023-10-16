@@ -35,15 +35,15 @@ const Orgnav = () => {
           </nav>
 
         </div>
-        <i className="bi bi-list mobile-nav-toggle navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="#navbarText" aria-expanded="false" ></i>
+        <i className="bi bi-list mobile-nav-toggle"  ></i>
       </header>
 
-      <div class="collapse navbar-collapse" id="navbarText">
+      {/* <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {/* <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li> */}
-          <li><Link className="nav-item" to="/organizer">Home</Link></li>
+      {/* <li><Link className="nav-item" to="/organizer">Home</Link></li>
           <li><Link className="nav-item" to="/vendorservices">See Other Organizers</Link></li>
 
 
@@ -52,7 +52,7 @@ const Orgnav = () => {
         {/* <span class="navbar-text">
               Navbar text with an inline element
             </span> */}
-      </div>
+      {/* </div> */}
 
     </>
   )

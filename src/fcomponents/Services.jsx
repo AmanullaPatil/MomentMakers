@@ -6,6 +6,7 @@ import Categorieslist from './categories/Categorieslist';
 import { Modal, Button } from 'react-bootstrap'; // Import modal components
 import UserProfile from './UserProfile';
 import ViewProfile from './ViewProfile';
+import { API_BASE_URL } from '../config/config';
 
 const Services = () => {
   const user = localStorage.getItem('token');
@@ -19,7 +20,7 @@ const Services = () => {
 
   const getOrganizers = async () => {
     console.log(1)
-    const res = await axios.get('http://localhost:5000/auth/organizers', { Headers: { "Content-Type": 'application/json' } })
+    const res = await axios.get(API_BASE_URL + '/auth/organizers', { Headers: { "Content-Type": 'application/json' } })
       .then(response => {
         setOrganizers(response.data);
       })
@@ -47,11 +48,23 @@ const Services = () => {
       </div>
       <Categorieslist />
       <div className="container" style={{ fontFamily: "sans-serif" }}>
-        <div className="row my-3">
-          {organizers.map(organizer => (
-            <div key={organizer._id} className="col my-2">
-              <div className="card " style={{ width: "12rem" }}>
-                <img className="card-img-top" src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
+        <div className="row flex flex-wrap my-3 justify-center">
+
+          {
+            organizers.map(organizer => (
+              <div className="col w-36 card my-3 mx-3" style={{ width: "18rem" }}>
+                {/* <img src="/assets/img/events-default.jpg" className="card-img-top" alt="..." /> */}
+                {
+                  organizer.image ?
+                    <img className="card-img-top w-36" src={`http://localhost:5000/${organizer.image}`} alt="event" />
+                    :
+                    <img className="card-img-top h-40 w-36" src='/assets/img/events-default.jpg' alt='event default' />
+                }
+                {/* <div className="card-body">
+                  <h5 className="card-title">Card title</h5>
+                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                </div> */}
                 <div className="card-body" >
                   <h5 className="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
 
@@ -67,8 +80,9 @@ const Services = () => {
                   }
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
+
         </div>
       </div>
       <Modal show={showProfileModal} onHide={handleCloseProfileModal}>
@@ -79,9 +93,9 @@ const Services = () => {
           {selectedUser && <UserProfile user={selectedUser} />}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseProfileModal}>
+          <button type='button' className="btn btn-secondary" onClick={handleCloseProfileModal}>
             Close
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
       <Footer />

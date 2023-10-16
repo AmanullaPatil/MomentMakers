@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { API_BASE_URL } from '../config/config'
 
 
 
@@ -17,7 +18,7 @@ const Reset = (props) => {
         try {
 
 
-            const { data } = await axios.post('http://localhost:5000/auth/vendor-otp-verify',
+            const { data } = await axios.post(API_BASE_URL + '/auth/vendor-otp-verify',
                 {
                     email: props.email,
                     password: creds.password,

@@ -3,20 +3,21 @@ import axios from 'axios';
 import Navbar from '../fcomponents/Navbar';
 import Footer from '../fcomponents/Footer';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/config';
 
 const MyUserProfile = () => {
 
     const navigate = useNavigate()
-      
+
     const handleLogout = () => {
-          localStorage.removeItem("token");
-      
-      navigate("/");
-          window.location.reload();
-      };
+        localStorage.removeItem("token");
+
+        navigate("/");
+        window.location.reload();
+    };
 
 
-    const [myuser, setMyUser] = useState({ name: "", email: "" , id:"", createAt:""});
+    const [myuser, setMyUser] = useState({ name: "", email: "", id: "", createAt: "" });
 
     useEffect(() => {
         getUser();
@@ -24,7 +25,7 @@ const MyUserProfile = () => {
 
     async function getUser() {
         try {
-            const response = await axios.get('http://localhost:5000/auth/getuser', {
+            const response = await axios.get(API_BASE_URL + '/auth/getuser', {
                 headers: {
                     "auth-token": localStorage.getItem('token')
                 }
@@ -33,8 +34,8 @@ const MyUserProfile = () => {
             setMyUser({
                 name: response.data.name,
                 email: response.data.email,
-                createAt:response.data.date,
-                id:response.data._id
+                createAt: response.data.date,
+                id: response.data._id
             });
             console.log(response)
         } catch (error) {

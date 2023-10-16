@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Dashnav from './Dashnav'
 import Dashside from './Dashside'
 import axios from 'axios'
+import { API_BASE_URL } from '../config/config'
 const AdminVendorProfiles = () => {
 
 
     const [organizers, setOrganizers] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/auth/organizers')
+        axios.get(API_BASE_URL + '/auth/organizers')
             .then(response => {
                 setOrganizers(response.data);
             })
@@ -21,7 +22,7 @@ const AdminVendorProfiles = () => {
 
     const deleteUser = (userId) => {
         // Make a DELETE request to your backend to delete the user by ID
-        axios.delete(`http://localhost:5000/auth/deleteorganizer/${userId}`)
+        axios.delete(API_BASE_URL + `/auth/deleteorganizer/${userId}`)
             .then((response) => {
                 // Handle the deletion success (e.g., remove the user from the list)
                 const updatedUsers = organizers.filter((user) => user._id !== userId);

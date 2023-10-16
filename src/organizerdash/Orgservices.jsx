@@ -6,6 +6,7 @@ import ViewProfile from '../fcomponents/ViewProfile';
 import UserProfile from '../fcomponents/UserProfile';
 import Footer from '../fcomponents/Footer';
 import VendorCategorieslist from '../fcomponents/categories/VendorCategorieslist';
+import { API_BASE_URL } from '../config/config';
 
 
 const Orgservices = () => {
@@ -15,7 +16,7 @@ const Orgservices = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/organizers')
+    axios.get(API_BASE_URL + '/auth/organizers')
       .then(response => {
         setOrganizers(response.data);
       })
@@ -43,15 +44,17 @@ const Orgservices = () => {
       </div>
       <VendorCategorieslist />
       <div className="container" style={{ fontFamily: "sans-serif" }}>
-        <div className="row my-3">
-          {organizers.map(organizer => (
-            <div key={organizer._id} className="col my-2">
-              <div className="card " style={{ width: "12rem" }}>
+        <div className="flex flex-wrap row my-3 justify-center">
+
+          {
+            organizers.map(organizer => (
+              <div className="col card my-3 mx-3" style={{ width: "18rem" }}>
+                {/* <img src="/assets/img/events-default.jpg" className="card-img-top" alt="..." /> */}
                 {
                   organizer.image ?
-                    <img className="card-img-top" style={{ width: "190px", height: "110px" }} src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
+                    <img className="card-img-top h-40" src={API_BASE_URL`/${organizer.image}`} alt="event" />
                     :
-                    <img className="card-img-top" style={{ width: "190px", height: "110px" }} src='/assets/img/events-default.jpg' alt='event default' />
+                    <img className="card-img-top h-40" src='/assets/img/events-default.jpg' alt='event default' />
                 }
 
                 <div className="card-body" >
@@ -67,11 +70,10 @@ const Orgservices = () => {
                     <ViewProfile />
 
                   }
-
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
 
         </div>
       </div>

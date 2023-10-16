@@ -21,10 +21,10 @@ const Dashnav = (props) => {
         <>
 
 
-            <nav id="main-navbar" className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-                <div className="container-fluid">
+            <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                <div class="container-fluid">
                     <button
-                        className="navbar-toggler dropdown-toggle"
+                        class="navbar-toggler"
                         type="button"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#sidebarMenu"
@@ -32,32 +32,21 @@ const Dashnav = (props) => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <i className="fas fa-bars dropdown"></i>
+                        <i class="fas fa-bars"></i>
                     </button>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            {/* <li><hr class="dropdown-divider"></li> */}
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
 
-                    <a className="navbar-brand" href="/admindash">
+                    <a class="navbar-brand" href="/admindash">
                         <h3>Moment Makers Admin</h3>
                     </a>
 
 
 
-                    <ul className="navbar-nav ms-auto d-flex flex-row">
+                    <ul class="navbar-nav ms-auto d-flex flex-row">
 
 
-                        <li className="nav-item dropdown mx-5 px-4">
+                        <li class="nav-item dropdown mx-5 px-4">
                             <a
-                                className="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+                                class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
                                 href="/organizer"
                                 id="navbarDropdownMenuLink"
                                 role="button"
@@ -66,18 +55,18 @@ const Dashnav = (props) => {
                             >
                                 <img
                                     src={myuser}
-                                    className="rounded-circle"
+                                    class="rounded-circle"
                                     height="30"
                                     alt="Avatar"
                                     loading="lazy"
                                 />
                             </a>
                             <ul
-                                className="dropdown-menu dropdown-menu-start"
+                                class="dropdown-menu dropdown-menu-start"
                                 aria-labelledby="navbarDropdownMenuLink"
                             >
                                 <li>
-                                    <li className="dropdown-item" onClick={handleLogout}>Logout</li>
+                                    <li class="dropdown-item" onClick={handleLogout}>Logout</li>
                                 </li>
                             </ul>
                         </li>

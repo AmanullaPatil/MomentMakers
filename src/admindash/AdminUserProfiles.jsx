@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Dashnav from './Dashnav'
 import Dashside from './Dashside'
 import axios from 'axios'
+import { API_BASE_URL } from '../config/config'
 
 
 const AdminUserProfiles = () => {
@@ -9,7 +10,7 @@ const AdminUserProfiles = () => {
     const [myuser, setMyUser] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/auth/getusers')
+        axios.get(API_BASE_URL + '/auth/getusers')
             .then(response => {
                 setMyUser(response.data);
             })
@@ -22,7 +23,7 @@ const AdminUserProfiles = () => {
     const deleteUser = (userId) => {
         // Make a DELETE request to your backend to delete the user by ID
         axios
-            .delete(`http://localhost:5000/auth/deleteuser/${userId}`)
+            .delete(`${API_BASE_URL}/auth/deleteuser/${userId}`)
             .then((response) => {
                 // Handle the deletion success (e.g., remove the user from the list)
                 const updatedUsers = myuser.filter((user) => user._id !== userId);

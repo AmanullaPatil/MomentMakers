@@ -6,6 +6,7 @@ import wedding from './img/wedding.jpg'
 import sound from './img/sound.jpg'
 import hall from './img/hall.jpg'
 import axios from 'axios'
+import { API_BASE_URL } from '../config/config'
 
 
 
@@ -16,7 +17,7 @@ const Organizers = () => {
   }, [])
 
   const getOrganizers = async () => {
-    const res = await axios.get('http://localhost:5000/auth/organizers', { Headers: { "Content-Type": 'application/json' } })
+    const res = await axios.get(API_BASE_URL + '/auth/organizers', { Headers: { "Content-Type": 'application/json' } })
     if (res.status === 200) {
       console.log(res)
     }
@@ -34,11 +35,11 @@ const Organizers = () => {
 
 
       <div className="container my-5 text-center">
-        <div className="row">
+        <div className="row flex flex-wrap">
 
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card">
-              <a href="/photographers" ><img src={photo} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
+              <a href="/photographers" ><img src={photo} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." /></a>
 
 
               <div className="card-body">
@@ -49,9 +50,9 @@ const Organizers = () => {
 
 
 
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card" >
-              <a href="/caterers" ><img src={catering} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
+              <a href="/caterers" ><img src={catering} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." /></a>
 
               <div className="card-body">
                 <h5 className="card-title" style={{ fontWeight: "700" }}>Food & Caterers</h5>
@@ -61,9 +62,9 @@ const Organizers = () => {
 
 
 
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card" >
-              <a href="/mehandi"  > <img src={mehandi} style={{ height: "500px" }} className="card-img-top" alt="..." /></a>
+              <a href="/mehandi"  > <img src={mehandi} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." /></a>
 
 
               <div className="card-body">
@@ -72,16 +73,9 @@ const Organizers = () => {
             </div>
           </div>
 
-
-
-
-        </div>
-
-        <div className="row mt-5">
-
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card">
-              <a href="/sound-system" ><img src={sound} className="card-img-top" alt="..." />
+              <a href="/sound-system" ><img src={sound} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." />
               </a>
 
               <div className="card-body">
@@ -92,9 +86,9 @@ const Organizers = () => {
 
 
 
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card" >
-              <a href="/function-halls" ><img src={hall} className="card-img-top" alt="..." /></a>
+              <a href="/function-halls" ><img src={hall} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." /></a>
 
 
               <div className="card-body">
@@ -105,9 +99,9 @@ const Organizers = () => {
 
 
 
-          <div className="col">
+          <div className="col mx-4 my-2" style={{ "width": "400px" }}>
             <div className="card" >
-              <a href="/wedding" ><img src={wedding} className="card-img-top" alt="..." /></a>
+              <a href="/wedding" ><img src={wedding} style={{ height: "500px", width: "300px" }} className="card-img-top" alt="..." /></a>
 
 
               <div className="card-body">
@@ -115,6 +109,13 @@ const Organizers = () => {
               </div>
             </div>
           </div>
+
+
+        </div>
+
+        <div className="row mt-5">
+
+
 
 
 

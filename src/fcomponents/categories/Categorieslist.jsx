@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 const Categorieslist = () => {
   return (
     <>
-    
-    <div className="container">
-        <div className="filter-organizers">
-          <ul className='categories-list'>
+
+      <div className="container">
+        <div className="filter-organizers ">
+          <ul className='categories-list flex flex-wrap'>
             <li className="items"> <Link to="/services">All Organizers</Link></li>
             <li className="items"> <Link to="/photographers">Photographers</Link></li>
             <li className="items"><Link to="/function-halls">Function Halls</Link></li>
@@ -21,8 +21,8 @@ const Categorieslist = () => {
         </div>
       </div>
 
-    
-    
+
+
     </>
   )
 }

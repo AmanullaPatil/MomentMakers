@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Sendmail from './Sendmail';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/config';
 
 const UserProfile = ({ user }) => {
 
@@ -13,7 +14,7 @@ const UserProfile = ({ user }) => {
 
   async function getUser() {
     try {
-      const response = await axios.get('http://localhost:5000/auth/getuser', {
+      const response = await axios.get(API_BASE_URL + '/auth/getuser', {
         headers: {
           "auth-token": localStorage.getItem('token')
         }
@@ -34,7 +35,7 @@ const UserProfile = ({ user }) => {
     <>
       <div className='d-flex'>
         <div className='mx-2'>
-          <img src={`http://localhost:5000/${user.image}`} alt="User" />
+          <img src={API_BASE_URL + `/${user.image}`} alt="User" />
         </div>
         <div>
           <h3 style={{ margin: "0", marginBottom: "2px", fontSize: "25px" }}><b>{user.firstname}</b></h3>
@@ -56,7 +57,7 @@ const UserProfile = ({ user }) => {
         <p style={{ margin: "0", marginBottom: "2px" }}>1 Day Charges:  ₹ <b className='text-danger'>{user.charge1}</b></p>
         <p style={{ margin: "0", marginBottom: "2px" }}>2 Day Charges:  ₹ <b className='text-danger'>{user.charge2}</b></p>
 
-        <h3 style={{ margin: "0", marginBottom: "2px", fontWeight: "400", fontSize: "23px" }} className='my-2'><b>Send Message</b></h3>
+        {/* <h3 style={{ margin: "0", marginBottom: "2px", fontWeight: "400", fontSize: "23px" }} className='my-2'><b>Send Message</b></h3> */}
 
 
 

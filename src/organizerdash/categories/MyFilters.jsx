@@ -6,6 +6,7 @@ import Orgnav from '../Orgnav';
 import Footer from '../../fcomponents/Footer';
 import ViewProfile from '../../fcomponents/ViewProfile';
 import UserProfile from '../../fcomponents/UserProfile';
+import { API_BASE_URL } from '../../config/config';
 
 const MyFilters = (props) => {
   const user = localStorage.getItem('token');
@@ -14,7 +15,7 @@ const MyFilters = (props) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/organizers')
+    axios.get(API_BASE_URL + '/auth/organizers')
       .then(response => {
         setOrganizers(response.data);
       })

@@ -3,16 +3,17 @@ import axios from 'axios';
 import Orgnav from './Orgnav';
 
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/config';
 
 const MyOrganizerProfile = () => {
     const navigate = useNavigate()
-      
+
     const handleLogout = () => {
-          localStorage.removeItem("token");
-            localStorage.removeItem('isUpload')
-      navigate("/");
-          window.location.reload();
-      };
+        localStorage.removeItem("token");
+        localStorage.removeItem('isUpload')
+        navigate("/");
+        window.location.reload();
+    };
     const [user, setUser] = useState({ firstname: "", lastname: "", dob: "", gender: "", createdAt: "", about: "", email: "", phone: "", id: "", image: "" });
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const MyOrganizerProfile = () => {
 
     async function getOrganizer() {
         try {
-            const response = await axios.get('http://localhost:5000/auth/getorganizer', {
+            const response = await axios.get(API_BASE_URL + '/auth/getorganizer', {
                 headers: {
                     "auth-token": localStorage.getItem('token')
                 }
@@ -53,7 +54,7 @@ const MyOrganizerProfile = () => {
         setSelectedImage(event.target.files[0]);
     };
 
-  
+
 
     const handleImageUpload = async () => {
         if (!selectedImage) return;
@@ -61,7 +62,7 @@ const MyOrganizerProfile = () => {
         formData.append('image', selectedImage);
 
         try {
-            const response = await axios.post('http://localhost:5000/auth/uploadimage', formData, {
+            const response = await axios.post(API_BASE_URL + '/auth/uploadimage', formData, {
                 headers: {
                     "auth-token": localStorage.getItem('token'),
                     "Content-Type": "multipart/form-data",
@@ -90,7 +91,7 @@ const MyOrganizerProfile = () => {
                 <div className="user-image">
                     <div className="container">
                         <h3 style={{ fontSize: "26px" }}>Upload profile Image</h3>
-                        <img src={`http://localhost:5000/${user.image}`} style={{ width: "230px" }} alt="Organizer" />
+                        <img src={API_BASE_URL + `/${user.image}`} style={{ width: "230px" }} alt="Organizer" />
                         <input className='btn btn-sm my-2 btn-warning' type="file" accept="image/*" onChange={handleImageChange} />
 
 

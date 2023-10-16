@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { API_BASE_URL } from '../config/config'
 
 
 const Vendorlogin = () => {
@@ -20,7 +21,7 @@ const Vendorlogin = () => {
         try {
 
 
-            const { data } = await axios.post('http://localhost:5000/auth/vendorlogin',
+            const { data } = await axios.post(API_BASE_URL + '/auth/vendorlogin',
                 document.querySelector('#my-form'), {
                 mode: 'no-cors',
                 headers: {

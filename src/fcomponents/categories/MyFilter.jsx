@@ -6,6 +6,7 @@ import ViewProfile from '../ViewProfile';
 import UserProfile from '../UserProfile';
 import Footer from '../Footer';
 import Categorieslist from './Categorieslist';
+import { API_BASE_URL } from '../../config/config';
 
 const MyFilter = (props) => {
   const user = localStorage.getItem('token');
@@ -14,7 +15,7 @@ const MyFilter = (props) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/organizers')
+    axios.get(API_BASE_URL + '/auth/organizers')
       .then(response => {
         setOrganizers(response.data);
       })
@@ -46,32 +47,38 @@ const MyFilter = (props) => {
         <h4 className='text-center'><b>{props.title}</b></h4>
       </div>
       <div className="container" style={{ fontFamily: "sans-serif" }}>
-        <div className="row my-3">
+
+        <div className="flex flex-wrap my-3 justify-center">
           {organizers.map(organizer => (
 
 
 
             organizer.category === props.category ?
 
-              <div key={organizer._id} className="col my-2">
-                <div className="card " style={{ width: "12rem" }}>
-                  <img className="card-img-top" src={`http://localhost:5000/${organizer.image}`} alt="Card cap" />
-                  <div className="card-body" >
-                    <h5 className="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
+              // <div key={organizer._id} className="col my-2">
+              <div className="card my-3 mx-3" style={{ width: "18rem" }}>
+                {
+                  organizer.image ?
+                    <img className="card-img-top h-40" src={`http://localhost:5000/${organizer.image}`} alt="event" />
+                    :
+                    <img className="card-img-top h-40" src='/assets/img/events-default.jpg' alt='event default' />
+                }
+                <div className="card-body" >
+                  <h5 className="card-title" style={{ fontWeight: "700" }}>{organizer.firstname}</h5>
 
-                    <p style={{ color: "blue", margin: "0", marginBottom: "2px" }}>{organizer.state}</p>
+                  <p style={{ color: "blue", margin: "0", marginBottom: "2px" }}>{organizer.state}</p>
 
-                    <p style={{ margin: "0", marginBottom: "2px" }}>₹ <b style={{ color: "red" }}>{organizer.pricing}</b> onwards</p>
-                    <p style={{ margin: "0", marginBottom: "5px" }}><b style={{ color: "brown" }}>{organizer.category}</b></p>
+                  <p style={{ margin: "0", marginBottom: "2px" }}>₹ <b style={{ color: "red" }}>{organizer.pricing}</b> onwards</p>
+                  <p style={{ margin: "0", marginBottom: "5px" }}><b style={{ color: "brown" }}>{organizer.category}</b></p>
 
 
-                    {user ? <button className="btn btn-info btn-sm" onClick={() => handleViewProfile(organizer)}>View</button> :
-                      <ViewProfile />
+                  {user ? <button className="btn btn-info btn-sm" onClick={() => handleViewProfile(organizer)}>View</button> :
+                    <ViewProfile />
 
-                    }
-                  </div>
+                  }
                 </div>
               </div>
+              // {/* </div> */}
 
               : ""
 
@@ -88,7 +95,7 @@ const MyFilter = (props) => {
           {selectedUser && <UserProfile user={selectedUser} />}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseProfileModal}>
+          <Button variant='secondary' onClick={handleCloseProfileModal}>
             Close
           </Button>
         </Modal.Footer>
