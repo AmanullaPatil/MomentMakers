@@ -52,7 +52,7 @@ const Services = () => {
 
           {
             organizers.map(organizer => (
-              <div className="col-sm-4 w-36 card my-3 mx-3" style={{ width: "18rem" }}>
+              <div className="col-sm-4 card my-3 mx-3" style={{ width: "18rem" }}>
                 {/* <img src="/assets/img/events-default.jpg" className="card-img-top" alt="..." /> */}
                 {
                   organizer.image ?
