@@ -56,7 +56,7 @@ const Services = () => {
                 {/* <img src="/assets/img/events-default.jpg" className="card-img-top" alt="..." /> */}
                 {
                   organizer.image ?
-                    <img className="card-img-top w-36" src={API_BASE_URL + `/${organizer.image}`} alt="event" />
+                    <img className="card-img-top h-40 w-36" src={API_BASE_URL + `/${organizer.image}`} alt="event" />
                     :
                     <img className="card-img-top h-40 w-36" src='/assets/img/events-default.jpg' alt='event default' />
                 }
