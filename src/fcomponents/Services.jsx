@@ -48,15 +48,15 @@ const Services = () => {
       </div>
       <Categorieslist />
       <div className="container" style={{ fontFamily: "sans-serif" }}>
-        <div className="row flex flex-wrap my-3 justify-center">
+        <div className="row my-3">
 
           {
             organizers.map(organizer => (
-              <div className="col w-36 card my-3 mx-3" style={{ width: "18rem" }}>
+              <div className="col-sm-4 w-36 card my-3 mx-3" style={{ width: "18rem" }}>
                 {/* <img src="/assets/img/events-default.jpg" className="card-img-top" alt="..." /> */}
                 {
                   organizer.image ?
-                    <img className="card-img-top w-36" src={`http://localhost:5000/${organizer.image}`} alt="event" />
+                    <img className="card-img-top w-36" src={API_BASE_URL + `/${organizer.image}`} alt="event" />
                     :
                     <img className="card-img-top h-40 w-36" src='/assets/img/events-default.jpg' alt='event default' />
                 }

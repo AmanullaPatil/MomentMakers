@@ -48,7 +48,7 @@ const MyFilter = (props) => {
       </div>
       <div className="container" style={{ fontFamily: "sans-serif" }}>
 
-        <div className="flex flex-wrap my-3 justify-center">
+        <div className="row my-3">
           {organizers.map(organizer => (
 
 
@@ -56,10 +56,10 @@ const MyFilter = (props) => {
             organizer.category === props.category ?
 
               // <div key={organizer._id} className="col my-2">
-              <div className="card my-3 mx-3" style={{ width: "18rem" }}>
+              <div className="col-sm-4 w-36 card my-3 mx-3" style={{ width: "18rem" }}>
                 {
                   organizer.image ?
-                    <img className="card-img-top h-40" src={`http://localhost:5000/${organizer.image}`} alt="event" />
+                    <img className="card-img-top h-40" src={API_BASE_URL + `/${organizer.image}`} alt="event" />
                     :
                     <img className="card-img-top h-40" src='/assets/img/events-default.jpg' alt='event default' />
                 }
